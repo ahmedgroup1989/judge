@@ -29,7 +29,7 @@ WORKDIR /api
 
 COPY Gemfile* ./
 #RUN RAILS_ENV=production bundle
-RUN RAILS_ENV=development bundle
+RUN RAILS_ENV=development
 
 COPY cron /etc/cron.d
 RUN cat /etc/cron.d/* | crontab -
