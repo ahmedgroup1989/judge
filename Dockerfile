@@ -31,8 +31,7 @@ COPY Gemfile* ./
 RUN /bin/sh -c RAILS_ENV=production bundle
 
 COPY cron /etc/cron.d
-RUN cat /etc/cron.d/* | crontab -
-
+RUN /bin/sh -c cat /etc/cron.d/*
 COPY . .
 
 ENTRYPOINT ["/api/docker-entrypoint.sh"]
